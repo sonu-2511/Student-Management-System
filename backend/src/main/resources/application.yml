@@ -6,9 +6,9 @@ spring:
     name: student-management-system
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/sms_db
-    username: postgres
-    password: 1234
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/sms_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:change-me}
     driver-class-name: org.postgresql.Driver
 
   jpa:
@@ -29,7 +29,7 @@ spring:
 
 app:
   jwt:
-    secret: ${JWT_SECRET:change-this-secret-in-production-must-be-at-least-256-bits-long}
+    secret: ${JWT_SECRET:change-this-secret-in-local-development}
     expiration-ms: ${JWT_EXPIRATION_MS:86400000}
 
   cors:
